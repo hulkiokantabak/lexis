@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<!-- Self-contained except GoatCounter (privacy-friendly, cookieless page-view counting — no
+     personal data; the piece itself never sends anything). Strict named-host allowlist. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' https://gc.zgo.at; style-src 'self'; img-src 'self' data: https://lexis.goatcounter.com; connect-src https://lexis.goatcounter.com; manifest-src 'self'; base-uri 'none'; form-action 'none'" />
+<title>LEXIS</title>
+<meta name="description" content="LEXIS is a small language you read by writing it: arrange the glyphs, and the field answers with the state they mean." />
+<meta name="color-scheme" content="light dark" />
+<meta name="theme-color" content="#F4EFE6" media="(prefers-color-scheme: light)" />
+<meta name="theme-color" content="#171613" media="(prefers-color-scheme: dark)" />
+<link rel="apple-touch-icon" href="assets/icon-180.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="assets/icon-192.png" />
+<link rel="manifest" href="manifest.webmanifest" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-title" content="LEXIS" />
+<meta property="og:title" content="LEXIS" />
+<meta property="og:description" content="A small language you read by writing it. Arrange the glyphs; the field answers with the state they mean. Third of the Experimental Concepts." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://hulkiokantabak.github.io/lexis/" />
+<meta property="og:image" content="https://hulkiokantabak.github.io/lexis/assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<link rel="canonical" href="https://hulkiokantabak.github.io/lexis/" />
+<meta name="twitter:card" content="summary_large_image" />
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23F4EFE6'/%3E%3Ccircle cx='16' cy='16' r='3.4' fill='%232B2820'/%3E%3Ccircle cx='16' cy='8' r='2' fill='%236B6455'/%3E%3Ccircle cx='16' cy='24' r='2' fill='%236B6455'/%3E%3Ccircle cx='8' cy='16' r='2' fill='%236B6455'/%3E%3Ccircle cx='24' cy='16' r='2' fill='%236B6455'/%3E%3C/svg%3E" />
+<link rel="stylesheet" href="css/lexis.css?v=5" />
+</head>
+<body>
+<a class="skip-link" href="#lexis">Skip to the field</a>
+
+<header class="mast">
+  <a class="wordmark" href="./">LEXIS</a>
+  <nav class="mast__nav" aria-label="Pages">
+    <button type="button" class="toggle" id="sound" aria-pressed="true">Sound: on</button>
+    <a href="about.html">About</a>
+    <a href="colophon.html">Colophon</a>
+    <a href="concepts.html">Concepts</a>
+    <a href="evaluation.html">Evaluation</a>
+  </nav>
+</header>
+
+<main class="stage" id="lexis" aria-label="LEXIS. A field of glyphs, a line you arrange them into, and the state that line means. Every arrangement is answered. Press R at any time to hear the whole field again; a glyph focused in the line reads the field up to that point.">
+
+  <!-- THE STATE: the live grid the current line means. Visual only; the screen-reader truth is the
+       result live region below, which narrates this same state in words. -->
+  <section class="state" aria-hidden="true">
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- THE LINE: the open composition strip -->
+  <div class="linewrap">
+    <div class="line" id="line" role="group" aria-label="the line — the glyphs you have arranged, left to right; each glyph says its position"></div>
+    <div class="controls">
+      <button type="button" class="linkbtn" id="keep" aria-label="Keep this line as a link">keep this line</button>
+      <button type="button" class="linkbtn" id="clear">clear the line</button>
+    </div>
+    <!-- the answer line: at rest it carries the promise; after every act it carries the answer
+         itself, in words — the same words the screen reader hears (aria-hidden to avoid
+         double-speak; the live region remains the spoken truth) -->
+    <p class="caption" id="answer" aria-hidden="true">Every arrangement is answered.</p>
+  </div>
+
+  <!-- THE FIELD: the palette. Glyph names are their shapes, not their meanings. -->
+  <div class="palette" id="palette" role="toolbar" aria-label="the field of glyphs"></div>
+
+  <!-- The two live regions (see docs: composition is silent; the result is the screen-reader truth) -->
+  <p class="sr-only" id="result" role="status" aria-live="polite" aria-atomic="true"></p>
+  <p class="sr-only" id="status" role="status" aria-live="polite"></p>
+
+  <noscript>
+    <div class="noscript">
+      <p>LEXIS is a small interactive language and needs JavaScript. Nothing you do in it is
+      recorded. The <a href="about.html">About page</a> describes the whole idea in words:
+      four marks and three operators; you arrange them into a line, and a small field answers with
+      the state that line means. There is no goal, no score, and nothing hidden — a small grammar
+      whose stacking has no ceiling.</p>
+    </div>
+  </noscript>
+</main>
+
+<script src="js/engine.js?v=5"></script>
+<script src="js/lexis.js?v=5"></script>
+<!-- GoatCounter: cookieless page-view counting only; no personal data; disclosed in the colophon -->
+<script data-goatcounter="https://lexis.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+</body>
+</html>
